@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import styles from "./login.module.css";
 
 const Login = ( { history } ) => {
 
@@ -37,10 +36,11 @@ const Login = ( { history } ) => {
                         />
                 </div>
                 <br></br>
-                <button className="form-input-btn"
-                type="submit">
-                    로그인
-                </button>
+                <Link to="./main">
+                    <button>
+                        로그인
+                    </button>
+                </Link>
                 <br></br>
                 <br></br>
                 <span className="form-input-register">
