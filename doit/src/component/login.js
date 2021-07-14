@@ -6,7 +6,7 @@ const Login = ( { history } ) => {
 
     return (
         <div className="form-content-left">
-            <div className="left">
+            <div className="login-left">
                 <form className="form">
                     <div className="logo">
                         <h1>Do-it</h1>

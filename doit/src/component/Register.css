@@ -1,18 +1,28 @@
+@font-face {
+    font-family: 'seoulHangangB';
+    src: url(./fonts/SeoulHangangB.ttf) format('truetype');
+}
+
 .left {
     background-color: white;
     float: left;
     height: 710px;
-    width: 40%;
+    width: 580px;
+    font-family:'seoulHangangB';
 }
 
 .form-label{
     font-size: 15px;
+    font-family:'seoulHangangB';
+
 }
 
 body {
     background-color: rgb(180, 180, 180);
     text-align: center;
     overflow: hidden;
+    font-family:'seoulHangangB';
+
 }
 
 .form-inputs p {
@@ -22,6 +32,7 @@ body {
     margin-top: -10px;
     margin-bottom: 20px;
     text-align: left;
+    font-family:'seoulHangangB';
     margin-left: 185px;
 }
 
@@ -29,15 +40,18 @@ body {
     margin-bottom:23px;
     height: 25px;
     width: 200px;
+    font-family:'seoulHangangB';
     background-color: rgb(240, 240, 240);
 }
 
 .logo {
     text-align: left;
+    font-family:'seoulHangangB';
 }
 
 .title {
     margin-bottom: 30px;
+    font-family:'seoulHangangB';
 }
 
 .form-input-btn {
@@ -48,10 +62,12 @@ body {
     border-style: none;
     background-color: rgb(200, 200, 200);
     border-radius: 17px;
+    font-family:'seoulHangangB';
 }
 
 .form-input-register{
     font-size: 12px;
+    font-family:'seoulHangangB';
 }
 
 label {

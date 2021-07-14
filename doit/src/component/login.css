@@ -1,26 +1,33 @@
-.left {
+@font-face {
+    font-family: 'seoulHangangB';
+    src: url(./fonts/SeoulHangangB.ttf) format('truetype');
+}
+
+.login-left {
     background-color: white;
     float: left;
     height: 710px;
-    width: 40%;
-}
-
-.form-label{
-    font-size: 15px;
+    width: 580px;
+    font-family: 'seoulHangangB';
 }
 
 body {
     background-color: rgb(180, 180, 180);
     text-align: center;
     overflow: hidden;
+    font-family: 'seoulHangangB';
 }
 
 .logo {
     text-align: left;
+    font-family: 'seoulHangangB';
 }
 
 .title {
     margin-bottom: 30px;
+    font-size: large;
+    color: gray;
+    font-family: 'seoulHangangB';
 }
 
 .login-btn {
@@ -31,22 +38,26 @@ body {
     border-style: none;
     background-color: rgb(200, 200, 200);
     border-radius: 17px;
+    font-family:'seoulHangangB';
 }
 
 .login-form-input {
     margin-bottom:23px;
     height: 30px;
     width: 300px;
+    font-family: 'seoulHangangB';
     background-color: rgb(240, 240, 240);
 }
 
 .form-input-register{
     font-size: 12px;
+    font-family: 'seoulHangangB';
 }
 
 .login-form-label {
     display: block;
     text-align: left;
+    font-family: 'seoulHangangB';
     margin-left: 135px;
     margin-bottom: 5px;
 }
@@ -54,6 +65,7 @@ body {
 .auto-login {
     display: block;
     text-align: left;
+    font-family: 'seoulHangangB';
     margin-left: 130px;
     margin-top: 0px;
 }
