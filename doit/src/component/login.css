@@ -1,0 +1,59 @@
+.left {
+    background-color: white;
+    float: left;
+    height: 710px;
+    width: 40%;
+}
+
+.form-label{
+    font-size: 15px;
+}
+
+body {
+    background-color: rgb(180, 180, 180);
+    text-align: center;
+    overflow: hidden;
+}
+
+.logo {
+    text-align: left;
+}
+
+.title {
+    margin-bottom: 30px;
+}
+
+.login-btn {
+    font-size: 20px;
+    padding: 10px 20px;
+    height: 140%;
+    width:25%;
+    border-style: none;
+    background-color: rgb(200, 200, 200);
+    border-radius: 17px;
+}
+
+.login-form-input {
+    margin-bottom:23px;
+    height: 30px;
+    width: 300px;
+    background-color: rgb(240, 240, 240);
+}
+
+.form-input-register{
+    font-size: 12px;
+}
+
+.login-form-label {
+    display: block;
+    text-align: left;
+    margin-left: 135px;
+    margin-bottom: 5px;
+}
+
+.auto-login {
+    display: block;
+    text-align: left;
+    margin-left: 130px;
+    margin-top: 0px;
+}
