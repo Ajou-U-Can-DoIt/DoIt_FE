@@ -10,10 +10,12 @@ const Login = ( { history } ) => {
                 <form className="form">
                     <div className="logo">
                         <h1>Do-it</h1>
+                        <br></br>
+                        <br></br>
+
                     </div>
                     <div className="title">
                         <h1>Login</h1>
-                        <br></br>
                         <br></br>
                     </div>
                     <div className="login-form-inputs">
@@ -47,6 +49,8 @@ const Login = ( { history } ) => {
                     <div className="auto-login">
                         <input type="checkbox"/><span>&nbsp;로그인 상태 유지</span>
                     </div>
+                    <br></br>
+                    <br></br>
                     <br></br>
                     <br></br>
 
