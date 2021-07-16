@@ -122,5 +122,4 @@ const Register = ( {submitForm } ) => {
         </div>
     );
 }
-
 export default Register;

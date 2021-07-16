@@ -7,8 +7,6 @@ export default function validateInfo(values) {
 
     if(!values.id.trim()) {
         errors.id = "ID를 입력해주세요.";
-    } else if(values.id.length < 6) {
-        errors.id = "ID는 6자리 이상이어야 합니다."
     }
 
     //Email
