@@ -10,8 +10,15 @@ const Register = ( {submitForm } ) => {
             <div className="left">
                 <form className='form' onSubmit={handleSubmit}>
                     <div className="logo">
-                        <h1>Do-it</h1>
+                        <img className="doit-img" src = {process.env.PUBLIC_URL + '/image/doit.png'} alt="Do-it"/>
+                        <p style={{fontSize: '30px', marginTop:'40px', float:'left'}}>&nbsp;Do-it</p>
                     </div>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+
                     <div className="title">
                         <h1>Sign in</h1>
                     </div>

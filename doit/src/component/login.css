@@ -25,6 +25,7 @@ body {
 
 .title {
     margin-bottom: 30px;
+    float: none;
     font-size: large;
     color: gray;
     font-family: 'seoulHangangB';
@@ -67,7 +68,22 @@ body {
 .auto-login {
     display: block;
     text-align: left;
+    font-size: 18px;
     font-family: 'seoulHangangB';
     margin-left: 130px;
     margin-top: 0px;
+}
+
+.auto-checkbox {
+    width: 15px;
+    height: 15px;
+}
+
+.doit-img {
+    width: 50px;
+    height: 50px;
+    margin-top: 30px;
+    margin-left: 30px;
+    border-radius: 17px;
+    float: left;
 }

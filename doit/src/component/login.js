@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React from 'react';
 import { Link } from 'react-router-dom';
 import "./login.css";
@@ -9,12 +10,17 @@ const Login = ( { history } ) => {
             <div className="login-left">
                 <form className="form">
                     <div className="logo">
-                        <h1>Do-it</h1>
+                        <img className="doit-img" src = {process.env.PUBLIC_URL + '/image/doit.png'} alt="Do-it"/>
+                        <p style={{fontSize: '30px', marginTop:'40px', float:'left'}}>&nbsp;Do-it</p>
                         <br></br>
                         <br></br>
-
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <br></br>
                     </div>
                     <div className="title">
+                        <br></br>
                         <h1>Login</h1>
                         <br></br>
                     </div>
@@ -47,7 +53,7 @@ const Login = ( { history } ) => {
                             />
                     </div>
                     <div className="auto-login">
-                        <input type="checkbox"/><span>&nbsp;로그인 상태 유지</span>
+                        <input type="checkbox" className="auto-checkbox"/><span>&nbsp;로그인 상태 유지</span>
                     </div>
                     <br></br>
                     <br></br>
