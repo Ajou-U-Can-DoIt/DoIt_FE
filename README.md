@@ -7,3 +7,6 @@ create-react-app : react 셋팅 다된 boilerplate 만들기 쉽게 도와주는
 
 ### 2. 코드 짠 것 미리보기 띄우기   
 npm start
+
+### 3. 리액트 big-calendar library 다운     
+npm install --save react-big-calendar
