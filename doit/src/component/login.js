@@ -31,7 +31,9 @@ export default class login extends Component {
                 <div className="login-left">
                     <form className="form" onSubmit={this.handleSubmit}>
                         <div className="logo">
-                            <img className="doit-img" src = {process.env.PUBLIC_URL + '/image/doit.png'} alt="Do-it"/>
+                            <Link to="/">
+                                <img className="doit-img" src = {process.env.PUBLIC_URL + '/image/doit.png'} alt="Do-it"/>
+                            </Link>
                             <p style={{fontWeight: "bolder", fontSize: '30px', marginTop:'40px', float:'left'}}>&nbsp;Do-it</p>
                             <br></br>
                             <br></br>
@@ -43,8 +45,9 @@ export default class login extends Component {
                         <div className="title">
                             <br></br>
                             <h1>Login</h1>
-                            <br></br>
                         </div>
+                        <br></br>
+                        <br></br>
                         <div className="login-form-inputs">
                             <label htmlFor="ID" 
                             className="login-form-label">
@@ -78,8 +81,7 @@ export default class login extends Component {
                         
                         <br></br>
                         <br></br>
-                        <br></br>
-    
+
                         <button className="login-btn" type="submit">
                             로그인
                         </button>

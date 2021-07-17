@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import useForm from './useForm';
 import validate from './validateInfo';
 import "./Register.css";
@@ -10,8 +11,10 @@ const Register = ( {submitForm } ) => {
             <div className="left">
                 <form className='form' onSubmit={handleSubmit}>
                     <div className="logo">
-                        <img className="doit-img" src = {process.env.PUBLIC_URL + '/image/doit.png'} alt="Do-it"/>
-                        <p style={{fontSize: '30px', marginTop:'40px', float:'left'}}>&nbsp;Do-it</p>
+                        <Link to="/">
+                            <img className="doit-img" src = {process.env.PUBLIC_URL + '/image/doit.png'} alt="Do-it"/>
+                        </Link>
+                        <p style={{fontWeight: "900", fontSize: '30px', marginTop:'40px', float:'left'}}>&nbsp;Do-it</p>
                     </div>
                     <br></br>
                     <br></br>
