@@ -32,7 +32,7 @@ export default class login extends Component {
                     <form className="form" onSubmit={this.handleSubmit}>
                         <div className="logo">
                             <img className="doit-img" src = {process.env.PUBLIC_URL + '/image/doit.png'} alt="Do-it"/>
-                            <p style={{fontSize: '30px', marginTop:'40px', float:'left'}}>&nbsp;Do-it</p>
+                            <p style={{fontWeight: "bolder", fontSize: '30px', marginTop:'40px', float:'left'}}>&nbsp;Do-it</p>
                             <br></br>
                             <br></br>
                             <br></br>
