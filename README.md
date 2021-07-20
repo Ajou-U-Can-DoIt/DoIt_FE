@@ -8,9 +8,8 @@ create-react-app : react 셋팅 다된 boilerplate 만들기 쉽게 도와주는
 ### 2. 코드 짠 것 미리보기 띄우기   
 npm start
 
-- package.json 에 있는 라이브러리 모두 설치
-```
+### 2-2. npm install로 설치했던 라이브러리 (package.json 파일에 있는) 모두 설치
 npm install
-```
+
 ### 3. 리액트 big-calendar library 다운     
 npm install --save react-big-calendar
