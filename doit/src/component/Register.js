@@ -23,7 +23,7 @@ const Register = ( {submitForm } ) => {
                     <br></br>
 
                     <div className="title">
-                        <h1>Sign in</h1>
+                        <h1>Sign up</h1>
                     </div>
                 <div className="form-inputs">
                     <label htmlFor="username"
@@ -60,14 +60,14 @@ const Register = ( {submitForm } ) => {
                 <div className="form-inputs">
                     <label htmlFor="password"
                     className="form-label">
-                        비밀 번호      
+                        비밀번호      
                     </label>
                     <input
                         id="password"
                         type="password"
                         name="password"
                         className="form-input"
-                        placeholder="비밀 번호 입력"
+                        placeholder="비밀번호 입력"
                         value={values.password}
                         onChange={handleChange}
                     />
@@ -76,14 +76,14 @@ const Register = ( {submitForm } ) => {
                 <div className="form-inputs">
                     <label htmlFor="password2"
                     className="form-label" >
-                        비밀 번호(확인)
+                        비밀번호(확인)
                     </label>
                     <input
                         id="password2"
                         type="password"
                         name="password2"
                         className="form-input"
-                        placeholder="비밀 번호 입력"
+                        placeholder="비밀번호 입력"
                         value={values.password2}
                         onChange={handleChange}
                     />
@@ -108,7 +108,7 @@ const Register = ( {submitForm } ) => {
                 <br></br>
                     <button className="form-input-btn"
                     type="submit">
-                        회원 가입
+                        회원가입
                     </button>
                     <br></br>
                     <br></br>
