@@ -3,18 +3,17 @@
     src: url(./fonts/SeoulHangangB.ttf) format('truetype');
 }
 
+.form-content-left {
+    background-color: rgb(214, 214, 214);
+    text-align: center;
+    overflow: hidden;
+    font-family: 'seoulHangangB';
+}
 .login-left {
     background-color: white;
     float: left;
     height: 710px;
     width: 580px;
-    font-family: 'seoulHangangB';
-}
-
-body {
-    background-color: rgb(214, 214, 214);
-    text-align: center;
-    overflow: hidden;
     font-family: 'seoulHangangB';
 }
 

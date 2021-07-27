@@ -17,12 +17,11 @@
 
 }
 
-body {
-    background-color: rgb(220, 220, 220);
+.form-content-left {
+    background-color: rgb(214, 214, 214);
     text-align: center;
     overflow: hidden;
-    font-family:'seoulHangangB';
-
+    font-family: 'seoulHangangB';
 }
 
 .form-inputs p {

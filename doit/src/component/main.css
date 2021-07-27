@@ -1,3 +1,24 @@
-body {
+.calendar {
+    border-left: 1px solid black;
+}
+
+.header {
+    background-color: white;
+    border-bottom: 1px solid black;
+    line-height: 0.1em;
+    display: block;
+    height: 30px;
+}
+
+.logout {
+    float: right;
+    margin: 4px;
+}
+
+.list {
+    display: inline-block;
+    float: left;
+    width: 30%;
+    height: 680px;
     background-color: white;
 }

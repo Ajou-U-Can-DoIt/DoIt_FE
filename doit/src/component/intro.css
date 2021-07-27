@@ -2,7 +2,14 @@
     font-family: 'seoulHangangB';
     src: url(./fonts/SeoulHangangB.ttf) format('truetype');
 }
-
+body {
+    background-color: rgb(214, 214, 214);
+}
+.container {
+    text-align: center;
+    overflow: auto;
+    font-family: 'seoulHangangB';
+}
 .logo-intro {
     text-align: center;
     display:inline-block;

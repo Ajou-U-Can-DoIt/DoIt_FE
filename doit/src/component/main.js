@@ -11,13 +11,25 @@ const myEventList = [{ start: new Date(), end: new Date(), title: "special event
 export default function Main() {
     return (
         <body>
+            <div className="header">
+                <div>
+                    <span>
+                        <button className="logout">
+                            Logout
+                        </button>
+                    </span>
+                </div> 
+            </div>
+            <div className="list">
+                <h1 className="calanderName" style={{textAlign: "center"}}>조용진님의 캘린더</h1>
+            </div>
             <div className="calendar">
                 <Calendar
                     localizer={localizer}
                     events={myEventList}
                     startAccessor="start"
                     endAccessor="end"
-                    style={{height: 700, width: 1000, display: "inline-block", float: "right"}}
+                    style={{height: "680px", width: "70%", float: "right", backgroundColor: "white"}}
                     />
                 </div>
         </body>
