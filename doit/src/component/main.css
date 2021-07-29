@@ -1,24 +1,69 @@
+@font-face {
+    font-family: 'seoulHangangB';
+    src: url(./fonts/SeoulHangangB.ttf) format('truetype');
+}
+
 .calendar {
-    border-left: 1px solid black;
+    border-left: 2px solid black;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    font-family: 'seoulHangangB';
+    width: 68.5%;
+    height: 660px;
+    float: right;
+    display: inline;
 }
 
 .header {
     background-color: white;
-    border-bottom: 1px solid black;
+    border-bottom: 2px solid black;
     line-height: 0.1em;
-    display: block;
-    height: 30px;
+    display:inline-block;
+    height: 42px;
+    width: 100%;
+    font-family: 'seoulHangangB';
 }
 
 .logout {
-    float: right;
-    margin: 4px;
+    height: 20px;
+    margin-right:15px;
 }
 
 .list {
-    display: inline-block;
+    display: inline;
+    border-bottom: 2px solid black;
+    border-top:2px solid black;
+    border-right:2px solid black;
     float: left;
-    width: 30%;
-    height: 680px;
+    width: 31%;
+    font-family: 'seoulHangangB';
+    height: 660px;
     background-color: white;
+}
+
+.doit-img-main{
+    height: 30px;
+    width: 30px;
+    padding-left: 10px;
+}
+
+.main-tr {
+    display: table-row;
+    float: left;
+    height: 10px;
+}
+
+.main-td {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.txt-main {
+    width: 100%;
+    padding-left: 10px;
+}
+
+.message-header {
+    display: inline;
+    float: right;
 }
