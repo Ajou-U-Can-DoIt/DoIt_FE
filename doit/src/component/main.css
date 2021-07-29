@@ -9,7 +9,7 @@
     border-bottom: 2px solid black;
     font-family: 'seoulHangangB';
     width: 68.5%;
-    height: 660px;
+    height: 620px;
     float: right;
     display: inline;
 }
@@ -66,4 +66,39 @@
 .message-header {
     display: inline;
     float: right;
+}
+
+.calendar-header {
+    display: flexbox;
+    height: 40px;
+    width: 68.7%;
+    font-family: 'seoulHangangB';
+
+}
+
+.render-range {
+    display: inline;
+    float: right;
+    margin-top: 4px;
+    font-size: 30px;
+}
+
+.btn-move-today {
+    margin-left: 5px;
+    height: 30px;
+    margin-top: 3px;
+    margin-right: 20px;
+    font-family: 'seoulHangangB';
+}
+
+.btn-move-prev {
+    height: 30px;
+    margin-right: 20px;
+    font-family: 'seoulHangangB';
+}
+
+.btn-move-next {
+    height: 30px;
+    margin-right: 20px;
+    font-family: 'seoulHangangB';
 }
