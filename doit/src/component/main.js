@@ -10,8 +10,9 @@ import Select from "react-select/creatable";
 const options = [
   { value: 'MyCalendar', label: '내 캘린더' },
 ];
-export default class Main extends React.Component {
 
+const nickname = localStorage.getItem('nickname')
+export default class Main extends React.Component {
     calendarInstance = null;
     calendarRef = React.createRef();
 
@@ -175,7 +176,7 @@ export default class Main extends React.Component {
                         </p>   
                     </div>   
                     <div className="message-header">
-                            안녕하세요, {}님. &nbsp; 
+                      안녕하세요, {nickname}님. &nbsp; 
                             <Link to="/">   
                                 <button className="logout">
                                     Logout
