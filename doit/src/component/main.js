@@ -5,7 +5,14 @@ import 'tui-date-picker/dist/tui-date-picker.css';
 import 'tui-time-picker/dist/tui-time-picker.css';
 import "./main.css"
 import { Link } from 'react-router-dom';
-  
+import Select from "react-select";
+
+const options = [
+  { value: 'chocolate', label: 'Chocolate' },
+  { value: 'strawberry', label: 'Strawberry' },
+  { value: 'vanilla', label: 'Vanilla' }
+]
+
 const getDate = (type, start, value, operator) => {
     start = new Date(start);
     type = type.charAt(0).toUpperCase() + type.slice(1);
@@ -151,7 +158,17 @@ export default class Main extends React.Component {
                     </div>     
                 </div>
                 <div className="list">
-                    <h1 className="calanderName" style={{textAlign: "center"}}>{ }님의 캘린더</h1>
+                    <Select className="calendar-name"
+                      options={options}
+                      theme={theme => ({
+                      ...theme,
+                      borderRadius: 0,
+                      colors: {
+                        ...theme.colors,
+                        primary25: 'gray',
+                        primary: 'black',
+                      },
+                    })}>calendar</Select>
                 </div>
                 <div className="calendar-header">
                     <button type="button"

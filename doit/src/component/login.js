@@ -12,12 +12,12 @@ export default class login extends Component {
             userName: this.id
         }).then(res => {
             console.log(res);
-            if(Object.keys(res.data).length === 2) {
-                window.alert(res.data.msg)
+            if(res.data.success === true) {
+                window.alert("로그인 되었습니다.")
                 window.location.replace('/main');
             }
             else {
-                window.alert(res.data.ErrMsg)
+                window.alert(res.data.data)
             }
         })
         .catch(err => {
