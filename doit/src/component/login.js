@@ -4,6 +4,7 @@ import "./login.css";
 import React, {Component} from 'react';
 
 export default class login extends Component {
+
     handleSubmit = e => { 
         e.preventDefault();
     
@@ -14,7 +15,7 @@ export default class login extends Component {
             console.log(res);
             if(res.data.success === true) {
                 window.alert("로그인 되었습니다.")
-                window.location.replace('/main');
+                window.location.replace('/main/%{nickName}');
             }
             else {
                 window.alert(res.data.data)
@@ -25,6 +26,7 @@ export default class login extends Component {
         })
     
     }
+    
     render() {
         return (
             <div className="form-content-left">
@@ -81,10 +83,18 @@ export default class login extends Component {
                         
                         <br></br>
                         <br></br>
+                        <Link to= {{
+                            pathname: '/main',
+                            state: {
+                                nickName: this.userusername
+                            }
+                        }}>
+                            <button className="login-btn" 
+                            type="submit">
+                                로그인
+                            </button>                            
+                        </Link>
 
-                        <button className="login-btn" type="submit">
-                            로그인
-                        </button>
                         <br></br>
                         <br></br>
                         <span className="form-input-register">

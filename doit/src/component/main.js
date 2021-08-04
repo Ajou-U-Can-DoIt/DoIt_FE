@@ -4,15 +4,12 @@ import 'tui-calendar/dist/tui-calendar.css';
 import 'tui-date-picker/dist/tui-date-picker.css';
 import 'tui-time-picker/dist/tui-time-picker.css';
 import "./main.css"
-import { Link } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 import Select from "react-select/creatable";
 
 const options = [
-  { value: 'chocolate', label: 'Chocolate' },
-  { value: 'strawberry', label: 'Strawberry' },
-  { value: 'vanilla', label: 'Vanilla' }
+  { value: 'MyCalendar', label: '내 캘린더' },
 ];
-
 export default class Main extends React.Component {
 
     calendarInstance = null;
