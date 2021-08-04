@@ -4,13 +4,13 @@
 }
 
 .calendar {
-    border-left: 2px solid black;
-    border-top: 2px solid black;
-    border-bottom: 2px solid black;
+    position: absolute;
+    border: 2px solid black;
     font-family: 'seoulHangangB';
-    width: 68.5%;
-    height: 620px;
+    width: 970px;
+    height: 610px;
     float: right;
+    margin-left: 8px;
     display: inline;
 }
 
@@ -18,9 +18,9 @@
     background-color: white;
     border-bottom: 2px solid black;
     line-height: 0.1em;
+    width: 1440px;
     display:inline-block;
     height: 42px;
-    width: 100%;
     font-family: 'seoulHangangB';
 }
 
@@ -35,9 +35,9 @@
     border-top:2px solid black;
     border-right:2px solid black;
     float: left;
-    width: 31%;
+    width: 450px;
     font-family: 'seoulHangangB';
-    height: 660px;
+    height: 650px;
     background-color: white;
 }
 
@@ -59,7 +59,7 @@
 }
 
 .txt-main {
-    width: 100%;
+    width: 2000px;
     padding-left: 10px;
 }
 
@@ -69,41 +69,67 @@
 }
 
 .calendar-header {
-    display: flexbox;
+    margin-left: 3px;
     height: 40px;
-    width: 68.7%;
+    width: 900px;
     font-family: 'seoulHangangB';
-
 }
 
 .render-range {
     display: inline;
-    float: right;
-    margin-top: 4px;
+    position: absolute;
+    margin-top: 0.3%;
+    margin-left: 230px; 
     font-size: 30px;
 }
 
 .btn-move-today {
     margin-left: 5px;
     height: 30px;
+    display: inline;
     margin-top: 3px;
-    margin-right: 20px;
+    margin-right: 3%;
     font-family: 'seoulHangangB';
 }
 
 .btn-move-prev {
     height: 30px;
-    margin-right: 20px;
+    margin-right: 3%;
     font-family: 'seoulHangangB';
 }
 
 .btn-move-next {
     height: 30px;
-    margin-right: 20px;
+    margin-right: 3%;
     font-family: 'seoulHangangB';
 }
 
+.calendar-container {
+    width: 100%;
+    position: inherit;
+    text-align: center;
+    border-bottom: 2px solid black;
+}
+
 .calendar-name {
-    width: 40%;
-    margin: 20px;
+    display: inline-block;
+    width: 60%;
+    padding: 3%;
+}
+
+.sp-add-calendar {
+    display: inline;
+    width: 20%;
+}
+.add-calendar {
+    height: 30px;
+    display: inline-block;
+    font-family: 'seoulHangangB';
+    margin: 6px;
+}
+
+.add-schedule {
+    height: 30px;
+    display: inline-block;
+    font-family: 'seoulHangangB';
 }

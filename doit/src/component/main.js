@@ -1,38 +1,25 @@
-import React from 'react';
+import React, {useCallback} from 'react';
 import Calendar from '@toast-ui/react-calendar';
 import 'tui-calendar/dist/tui-calendar.css';
 import 'tui-date-picker/dist/tui-date-picker.css';
 import 'tui-time-picker/dist/tui-time-picker.css';
 import "./main.css"
 import { Link } from 'react-router-dom';
-import Select from "react-select";
+import Select from "react-select/creatable";
 
 const options = [
   { value: 'chocolate', label: 'Chocolate' },
   { value: 'strawberry', label: 'Strawberry' },
   { value: 'vanilla', label: 'Vanilla' }
-]
-
-const getDate = (type, start, value, operator) => {
-    start = new Date(start);
-    type = type.charAt(0).toUpperCase() + type.slice(1);
-  
-    if (operator === "+") {
-      start[`set${type}`](start[`get${type}`]() + value);
-    } else {
-      start[`set${type}`](start[`get${type}`]() - value);
-    }
-  
-    return start;
-};
+];
 
 export default class Main extends React.Component {
 
     calendarInstance = null;
     calendarRef = React.createRef();
 
-
     state = {
+        selectedOption: null,
         dateRange: "",
         view: "week",
         viewModeOptions: [
@@ -50,18 +37,44 @@ export default class Main extends React.Component {
           }
         ]
     };
-
+    handleChange = (selectedOption) => {
+      this.setState({selectedOption}, () =>
+        console.log('Option selected:', this.state.selectedOption)
+        );
+    };
     componentDidMount() {
         this.calendarInst = this.calendarRef.current.getInstance();
         this.setState({ view: this.props.view });
     
         this.setRenderRangeText();
     }
+
+    onAfterRenderSchedule(res) {
+      console.group("onAfterRenderSchedule");
+      console.log("Schedule Info : ", res.schedule);
+      console.groupEnd();
+    }
+
+    onBeforeDeleteSchedule(res) {
+      console.group("onBeforeDeleteSchedule");
+      console.log("Schedule Info : ", res.schedule);
+      console.groupEnd();
+  
+      const { id, calendarId } = res.schedule;
+  
+      this.calendarInst.deleteSchedule(id, calendarId);
+    }
     
     onChangeSelect(ev) {
         this.setState({ view: ev.target.value });
     
         this.setRenderRangeText();
+    }
+
+    onClickDayname(res) {
+      console.group("onClickDayname");
+      console.log(res.date);
+      console.groupEnd();
     }
 
     onClickNavi(event) {
@@ -77,42 +90,58 @@ export default class Main extends React.Component {
         }
     }
 
+    onClickSchedule(res) {
+      console.group("onClickSchedule");
+      console.log("MouseEvent : ", res.event);
+      console.log("Calendar Info : ", res.calendar);
+      console.log("Schedule Info : ", res.schedule);
+      console.groupEnd();
+    }
+
     setRenderRangeText() {
-        const view = this.calendarInst.getViewName();
         const calDate = this.calendarInst.getDate();
-        const rangeStart = this.calendarInst.getDateRangeStart();
-        const rangeEnd = this.calendarInst.getDateRangeEnd();
         let year = calDate.getFullYear();
         let month = calDate.getMonth() + 1;
-        let date = calDate.getDate();
         let dateRangeText = "";
-        let endMonth, endDate, start, end;
     
-        switch (view) {
-          case "month":
-            dateRangeText = `${year}-${month}`;
-            break;
-          case "week":
-            year = rangeStart.getFullYear();
-            month = rangeStart.getMonth() + 1;
-            date = rangeStart.getDate();
-            endMonth = rangeEnd.getMonth() + 1;
-            endDate = rangeEnd.getDate();
-    
-            start = `${year}-${month < 10 ? "0" : ""}${month}-${
-              date < 10 ? "0" : ""
-            }${date}`;
-            end = `${year}-${endMonth < 10 ? "0" : ""}${endMonth}-${
-              endDate < 10 ? "0" : ""
-            }${endDate}`;
-            dateRangeText = `${start} ~ ${end}`;
-            break;
-          default:
-            dateRangeText = `${year}-${month}-${date}`;
-        }
-    
+        dateRangeText = `${year}-${month}`;
         this.setState({ dateRange: dateRangeText });
     }
+
+    onBeforeUpdateSchedule(event) {
+      const { schedule } = event;
+      const { changes } = event;
+  
+      this.calendarInst.updateSchedule(schedule.id, schedule.calendarId, changes);
+    }
+
+    
+  onBeforeCreateSchedule(scheduleData) {
+    const { calendar } = scheduleData;
+    const schedule = {
+      id: String(Math.random()),
+      title: scheduleData.title,
+      isAllDay: scheduleData.isAllDay,
+      start: scheduleData.start,
+      end: scheduleData.end,
+      category: scheduleData.isAllDay ? "allday" : "time",
+      dueDateClass: "",
+      location: scheduleData.location,
+      raw: {
+        class: scheduleData.raw["class"]
+      },
+      state: scheduleData.state
+    };
+
+    if (calendar) {
+      schedule.calendarId = calendar.id;
+      schedule.color = calendar.color;
+      schedule.bgColor = calendar.bgColor;
+      schedule.borderColor = calendar.borderColor;
+    }
+
+    this.calendarInst.createSchedules([schedule]);
+  }
 
     handleClickPrevButton = () => {
         const calendarInstance = this.calendarRef.current.getInstance();
@@ -133,7 +162,7 @@ export default class Main extends React.Component {
     };
 
     render() {
-        const { dateRange, view, viewModeOptions } = this.state;
+        const { selectedOption, dateRange, view, viewModeOptions } = this.state;
         const selectedView = view || this.props.view;
         return (
             <body>
@@ -158,8 +187,11 @@ export default class Main extends React.Component {
                     </div>     
                 </div>
                 <div className="list">
+                  <div className="calendar-container">
                     <Select className="calendar-name"
+                      value={selectedOption}
                       options={options}
+                      onChange={this.handleChange}
                       theme={theme => ({
                       ...theme,
                       borderRadius: 0,
@@ -168,7 +200,16 @@ export default class Main extends React.Component {
                         primary25: 'gray',
                         primary: 'black',
                       },
-                    })}>calendar</Select>
+                      })}>calendar</Select>
+                      <div className="sp-add-calendar">
+                        <button className="add-calendar">
+                          캘린더 추가
+                        </button>
+                          <button className="add-schedule">
+                            일정 추가
+                          </button>
+                      </div>
+                  </div>
                 </div>
                 <div className="calendar-header">
                     <button type="button"
@@ -183,12 +224,28 @@ export default class Main extends React.Component {
                     className="btn-move-next"
                     data-action="move-next"
                     onClick={this.onClickNavi.bind(this)}>다음 달</button>
-                    <span className="render-range">{dateRange}</span>
+                    <span className="render-range"
+                    style={{textAlign: "center"}}>{dateRange}</span>
                 </div>
                 <div className="calendar">
                     <Calendar
+                        usageStatistics={false}
+                        calendars={[
+                          {
+                            id: "0",
+                            name: "Private",
+                            bgColor: "#9e5fff",
+                            borderColor: "#9e5fff"
+                          },
+                          {
+                            id: "1",
+                            name: "Company",
+                            bgColor: "#00a9ff",
+                            borderColor: "#00a9ff"
+                          }
+                        ]}
                         ref={this.calendarRef}
-                        height="620px"
+                        height="610px"  
                         useCreationPopup={true}
                         useDetailPopup={true}
                         view="month"
@@ -199,6 +256,14 @@ export default class Main extends React.Component {
                               displayLabel: 'GMT+09:00',
                               tooltip: 'Seoul'
                         }]}
+                        scheduleView
+                        taskView
+                        onAfterRenderSchedule={this.onAfterRenderSchedule.bind(this)}
+                        onBeforeDeleteSchedule={this.onBeforeDeleteSchedule.bind(this)}
+                        onBeforeCreateSchedule={this.onBeforeCreateSchedule.bind(this)}
+                        onClickDayname={this.onClickDayname.bind(this)}
+                        onClickSchedule={this.onClickSchedule.bind(this)}
+                        onBeforeUpdateSchedule={this.onBeforeUpdateSchedule.bind(this)}
                         />
                     </div>
             </body>
