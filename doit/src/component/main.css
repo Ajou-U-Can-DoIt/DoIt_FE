@@ -84,7 +84,7 @@
 }
 
 .btn-move-today {
-    margin-left: 5px;
+    margin-left: 8px;
     height: 30px;
     display: inline;
     margin-top: 3px;
@@ -114,22 +114,19 @@
 .calendar-name {
     display: inline-block;
     width: 60%;
-    padding: 3%;
+    padding: 10px;
+    margin-right: 30px;
 }
 
 .sp-add-calendar {
     display: inline;
-    width: 20%;
-}
-.add-calendar {
-    height: 30px;
-    display: inline-block;
-    font-family: 'seoulHangangB';
-    margin: 6px;
+    width: 30%;
 }
 
 .add-schedule {
     height: 30px;
+    margin-left: 20px;
+    margin-right: 30px;
     display: inline-block;
     font-family: 'seoulHangangB';
 }

@@ -1,4 +1,4 @@
-import React, {useCallback} from 'react';
+import React, {useState, useCallback} from 'react';
 import Calendar from '@toast-ui/react-calendar';
 import 'tui-calendar/dist/tui-calendar.css';
 import 'tui-date-picker/dist/tui-date-picker.css';
@@ -7,7 +7,7 @@ import "./main.css"
 import { Link} from 'react-router-dom';
 import Select from "react-select/creatable";
 
-const options = [
+const defaultOptions = [
   { value: 'MyCalendar', label: '내 캘린더' },
 ];
 
@@ -17,29 +17,22 @@ export default class Main extends React.Component {
     calendarRef = React.createRef();
 
     state = {
-        selectedOption: null,
-        dateRange: "",
-        view: "week",
-        viewModeOptions: [
-          {
-            title: "Monthly",
-            value: "month"
-          },
-          {
-            title: "Weekly",
-            value: "week"
-          },
-          {
-            title: "Daily",
-            value: "day"
-          }
-        ]
+      isSubmitting: false,
+      selectedOption: null,
+      options: defaultOptions,
+      value: undefined,
+      dateRange: "",
     };
+
     handleChange = (selectedOption) => {
-      this.setState({selectedOption}, () =>
-        console.log('Option selected:', this.state.selectedOption)
-        );
+      this.setState({selectedOption})
     };
+
+    handleCreate = (selectedOption) => {
+      const newValue = {value:selectedOption, label: selectedOption};
+      this.setState({newValue})
+    };
+
     componentDidMount() {
         this.calendarInst = this.calendarRef.current.getInstance();
         this.setState({ view: this.props.view });
@@ -188,7 +181,8 @@ export default class Main extends React.Component {
                   <div className="calendar-container">
                     <Select className="calendar-name"
                       value={selectedOption}
-                      options={options}
+                      options={defaultOptions}
+                      onCreateOption={this.handleCreate}
                       onChange={this.handleChange}
                       theme={theme => ({
                       ...theme,
@@ -200,12 +194,9 @@ export default class Main extends React.Component {
                       },
                       })}>calendar</Select>
                       <div className="sp-add-calendar">
-                        <button className="add-calendar">
-                          캘린더 추가
+                        <button className="add-schedule">
+                          일정 추가
                         </button>
-                          <button className="add-schedule">
-                            일정 추가
-                          </button>
                       </div>
                   </div>
                 </div>
