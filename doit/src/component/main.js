@@ -40,6 +40,10 @@ export default class Main extends React.Component {
         this.setRenderRangeText();
     }
 
+    componentDidUpdate() {
+      this.calendarInst.render();
+    }
+
     onAfterRenderSchedule(res) {
       console.group("onAfterRenderSchedule");
       console.log("Schedule Info : ", res.schedule);
@@ -100,17 +104,20 @@ export default class Main extends React.Component {
     }
 
     onBeforeUpdateSchedule(event) {
+      console.log("event : ", event)
       const { schedule } = event;
       const { changes } = event;
   
       this.calendarInst.updateSchedule(schedule.id, schedule.calendarId, changes);
     }
-
     
   onBeforeCreateSchedule(scheduleData) {
     const { calendar } = scheduleData;
     const schedule = {
       id: String(Math.random()),
+      calendarId: scheduleData.calendarId,
+      color: scheduleData.color,
+      bgColor: scheduleData.bgColor,
       title: scheduleData.title,
       isAllDay: scheduleData.isAllDay,
       start: scheduleData.start,
@@ -130,7 +137,6 @@ export default class Main extends React.Component {
       schedule.bgColor = calendar.bgColor;
       schedule.borderColor = calendar.borderColor;
     }
-
     this.calendarInst.createSchedules([schedule]);
   }
 
@@ -194,7 +200,8 @@ export default class Main extends React.Component {
                       },
                       })}>calendar</Select>
                       <div className="sp-add-calendar">
-                        <button className="add-schedule">
+                        <button className="add-schedule"
+                        onClick={this.onBeforeCreateSchedule.bind(this)}>
                           일정 추가
                         </button>
                       </div>
@@ -222,13 +229,13 @@ export default class Main extends React.Component {
                         calendars={[
                           {
                             id: "0",
-                            name: "Private",
+                            name: "과제",
                             bgColor: "#9e5fff",
                             borderColor: "#9e5fff"
                           },
                           {
                             id: "1",
-                            name: "Company",
+                            name: "시험",
                             bgColor: "#00a9ff",
                             borderColor: "#00a9ff"
                           }
