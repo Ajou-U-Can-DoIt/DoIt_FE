@@ -201,7 +201,7 @@ export default class Main extends React.Component {
                       })}>calendar</Select>
                       <div className="sp-add-calendar">
                         <button className="add-schedule"
-                        onClick={this.onBeforeCreateSchedule.bind(this)}>
+                        >
                           일정 추가
                         </button>
                       </div>
